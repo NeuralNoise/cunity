@@ -28,4 +28,5 @@ define('CUNITY_CACHE',              CUNITY_BASE . '/cache');
 define('CUNITY_MANIFESTS',          CUNITY_ADMINISTRATOR . '/manifests');
 
 // Defines for Joomla Platform compatibility
-define('JPATH_BASE', CUNITY_BASE);
+define('JPATH_BASE',   CUNITY_BASE);
+define('JPATH_THEMES', CUNITY_BASE);

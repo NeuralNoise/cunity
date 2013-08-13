@@ -1,3 +1,6 @@
 [submodule "libraries"]
 	path = libraries
 	url = https://github.com/Kuebler-IT/joomla-platform.git
+[submodule "libraries/"]
+	path = libraries/
+	url = https://github.com/Kuebler-IT/joomla-platform.git

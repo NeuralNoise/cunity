@@ -19,15 +19,21 @@ defined('_CUNITY') or die;
 final class CuInInstaller extends JApplicationWeb
 {
 	/**
+	 * The application message queue.
+	 *
+	 * @var    array
+	 * @since  3.1
+	 */
+	protected $_messageQueue = array();
+	
+	/**
 	 * Class constructor
 	 * 
 	 */
-	//public function __construct(JInput $input = null, JRegistry $config = null, JApplicationWebClient $client = null)
-	public function __construct()
+	public function __construct(JInput $input = null, JRegistry $config = null, JApplicationWebClient $client = null)
 	{
 		// Run the parent constructor
-		//parent::__construct($input, $config, $client);
-		parent::__construct();
+		parent::__construct($input, $config, $client);
 		
 		// Load and set the dispatcher
 		$this->loadDispatcher();
@@ -62,7 +68,35 @@ final class CuInInstaller extends JApplicationWeb
 		// Set the root in the URI based on the application name
 		JUri::root(null, str_ireplace('/installation', '', JUri::base(true)));
 	}
-/**
+	
+	/**
+	 * Get the system message queue.
+	 *
+	 * @return  array  The system message queue.
+	 */
+	public function getMessageQueue()
+	{
+		// For empty queue, if messages exists in the session, enqueue them.
+		if (!count($this->_messageQueue))
+		{
+			$session = JFactory::getSession();
+			$sessionQueue = $session->get('application.queue');
+	
+			if (count($sessionQueue))
+			{
+				$this->_messageQueue = $sessionQueue;
+				$session->set('application.queue', null);
+			}
+		}
+	
+		return $this->_messageQueue;
+	}
+
+	/**
+	 * Gets the name of the current template
+	 * 
+	 *  @return string Name of the template
+	 */
 	public function getTemplate($params = false)
 	{
 		if ($params)
@@ -74,7 +108,7 @@ final class CuInInstaller extends JApplicationWeb
 		}
 
 		return 'template';
-	}**/
+	}
 
 	/**
 	 * Allows the application to load a custom or default session.
@@ -82,7 +116,7 @@ final class CuInInstaller extends JApplicationWeb
 	 * @param   JSession  $session  An optional session object. If omitted, the session is created.
 	 * @return  JApplicationWeb This method is chainable.
 	 */
-	public function loadSession(JSession $session = null)
+	/**public function loadSession(JSession $session = null)
 	{
 		jimport('legacy.application.application');
 	
@@ -102,7 +136,7 @@ final class CuInInstaller extends JApplicationWeb
 		$this->session = $session;
 	
 		return $this;
-	}
+	}**/
 
 	/**
 	 * Method render to pushing the document buffers into template
@@ -122,8 +156,7 @@ final class CuInInstaller extends JApplicationWeb
 				'directory' => CUNITY_THEMES,
 				'params' => '{}'
 		);
-		print_r($this->document);
-		print_r($options);
+
 		// Parse the document.
 		$this->document->parse($options);
 

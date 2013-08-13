@@ -19,6 +19,6 @@ class CuInControllerDefault extends JControllerBase
 {
 	public function execute()
 	{
-		return '<h1> Helloworld Template</h1>';
+		return '';
 	}
 }
