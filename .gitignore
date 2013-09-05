@@ -1,3 +1,12 @@
+# Eclipse IDE files
 .project
 .buildpath
 .settings
+
+# Ignore some installer files after installation
+installer/.htaccess
+installer/installed.php
+
+# Ignore template cache directories
+includes/templates_compiled
+admin/includes/templates_compiled
