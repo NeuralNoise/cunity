@@ -154,8 +154,15 @@ $menu = $cunity->getCunityMainMenu();
 $cunity->getTemplateEngine()->setPath('style/' . $_SESSION['style'] . '/templates/');
 $tplEngine = $cunity->getTemplateEngine();
 
-//Assign veriables for overall_header Template
-$tplEngine->Template('overall_header');
+// Get current template default or special
+if (defined('CU_EXTRA_HEAD') && ($_SESSION['style'] == 'cunity'))
+{
+	$tplEngine->Template( CU_EXTRA_HEAD . '_header');
+}
+else {
+	$tplEngine->Template('overall_header');
+}
+
 $tplEngine->Assign('DESIGNS', $designs);
 $tplEngine->Assign('ACTIVE_' . strtoupper($cunity->getCurrentFile()), $cunity->isCurrentModule($cunity->getCurrentFile()));
 $tplEngine->Assign('HEADER', $cunity->getSetting('header_body'));

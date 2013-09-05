@@ -34,12 +34,22 @@
    */
    
 ob_start("ob_gzhandler");
+define('CU_EXTRA_HEAD', 'start');
 require('ov_head.php');
+
 $tplEngine->Assign('TITLE', $cunity->getSetting('name'));
 $tplEngine->Template('start');
 
 $tplEngine->Assign('BODY', $cunity->getSetting('landing_body'));
 $tplEngine->show();
-require('ov_foot.php');
+
+if($_SESSION['style'] != 'cunity')
+{
+	require('ov_foot.php');
+}
+else 
+{
+	require 'start_foot.php';
+}
 ob_end_flush();
 ?>
