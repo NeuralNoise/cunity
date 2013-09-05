@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+body
+{
+	padding-top: 75px;
+}
+
+.navbar a.brand
+{
+	padding: 0px;
+}
+
+form.register .control-label
+{
+	width: 110px;
+	font-weight: bold;
+} 
+form.register .controls
+{
+	margin-left: 140px;
+}
+form.register .control-group
+{
+	margin-bottom: 10px;
+}

@@ -1,0 +1,120 @@
+<div style="background-color:#b80718;padding: 20px 0px;">
+	<div class="container" style="background-color: #FFF;">
+		<div class="col-lg-7 hidden-xs">
+			<img src="style/cunity/images/feelfree.png" class="img-responsive" style="margin:50px auto;"/>
+		</div>
+		<div class="col-xs-12 visible-xs" style="margin: 20px auto;">
+			<form action="register.php?c=login" class="form-horizontal" role="form">
+				<legend style="text-transform: uppercase; color: #b80718;">Login</legend>
+				<div class="form-group">
+					<div class="col-xs-12">
+						<input type="text" name="mail" class="form-control" placeholder="{-$sidebar_mail}Email" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-12">
+						<input type="password" name="pass" class="form-control" placeholder="{-$sidebar_pass}Password" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-6">
+											<label>
+								<input type="checkbox" name="save_login" value="yes"> {-$sidebar_keep_online} Angemeldet bleiben
+							</label>
+							<a href="register.php?c=resetpw" >{-$sidebar_forgot_pw}Passwort vergessen ?</a>
+					</div>
+					<div class="col-xs-6">
+					<input type="submit" class="btn btn-primary btn-sm" name="login" value="Anmelden" style="margin-top: 0px;" />
+					</div>
+				</div>       
+			</form>
+		</div>
+		<div class="col-lg-5 col-xs-12" style="margin-top: 15px;">
+			<div>
+				<div>
+					<form action="register.php" id="register_form" class="form-horizontal" role="form">
+						<legend style="text-transform: uppercase;color: #b80718;">Registrieren</legend>
+						<div class="form-group">
+							<label class="control-label col-lg-4 col-md-4 col-xs-12" for="nickname">{-$profile_view_nick}</label>
+							<div class="col-lg-8 col-md-8 col-xs-12">
+								<input type="text" name="nickname" id="nickname" class="form-control" onkeyup="checkField('nickname',$(this).val(),true)"/><span id="nickname_checked"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-lg-4 col-md-4 col-xs-12" for="mail1">E-Mail</label>
+							<div class="col-lg-8 col-md-8 col-xs-12">
+								<input type="text" name="mail1" id="mail1"  class="form-control" onkeyup="checkField('mail',$(this).val(),true)"/><span  id="mail_checked"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-lg-4 col-md-4 col-xs-12" for="pw1">{-$register_pw}</label>
+							<div class="col-lg-8 col-md-8 col-xs-12">
+								<input type="password" name="pw1" id="pw1"  class="form-control" onkeyup="checkFieldLength($(this).val(),6,'pw1');"/><span  id="pw1_checked"></span>
+							</div>
+						</div>
+						{-$NAMES}
+						<div class="form-group">
+							<label class="control-label col-lg-4 col-md-4 col-xs-12" for="pw2">{-$register_rpt}</label>
+							<div class="col-lg-8 col-md-8 col-xs-12">
+								<input type="password" class="form-control" name="pw2" id="pw2" onkeyup="compareField($('#pw1').val(),$(this).val(),'pw2');"/><span  id="pw2_checked"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-lg-4 col-md-4 col-xs-12" >{-$register_address}</label>
+							<div class="col-lg-8 col-md-8 col-xs-12">
+								<select name="sex" class="form-control">
+									<option value="1">{-$register_mr}</option>
+									<option value="0">{-$register_mrs}</option> 
+								</select>
+							</div>
+						</div>        
+						<div class="form-group">
+							<label class="control-label col-lg-4 col-md-4 col-xs-12" for="birthday">{-$register_birthday}</label>
+							<div class="col-lg-2 col-md-2 col-xs-4">
+								<select id="day" name="day" class="form-control">
+									{-$DAYS}
+								</select>
+							</div>
+							<div class="col-lg-3 col-md-3 col-xs-4">
+								<select id="month" name="month" class="form-control" >
+									{-$MONTHS}
+								</select>
+							</div>
+							<div class="col-lg-3 col-md-3 col-xs-4">
+								<select id="year" name="year" class="form-control">
+									{-$YEARS}
+								</select>
+								<span id="birthday_checked"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-offset-4 col-lg-8 col-md-offset-4 col-md-8">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" id="terms" name="terms" value="yes" /> {-$register_accept}
+										<a href="javascript: showPage('terms');" style="text-decoration: underline;">{-$register_terms}</a>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-offset-4 col-lg-8 col-md-offset-4 col-md-8">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" id="privacy" name="privacy" value="yes"/> {-$register_accept}
+										<a href="javascript: showPage('privacy');" style="text-decoration: underline;">{-$register_privacy}</a>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-offset-4 col-lg-8 col-md-offset-4 col-md-8">
+								<button type="submit" class="btn btn-lg btn-primary">{-$register_button}</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
