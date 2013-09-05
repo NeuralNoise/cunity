@@ -1,5 +1,5 @@
 .project
 .buildpath
 .settings
-/config.php
+config.php
 /installer
