@@ -49,7 +49,7 @@ if($_SESSION['style'] != 'cunity')
 }
 else 
 {
-	require 'start_foot.php';
+	require 'cunity_foot.php';
 }
 ob_end_flush();
 ?>

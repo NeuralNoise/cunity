@@ -32,7 +32,16 @@
    
    #####################################################################################
    */
-   
+
+// implement extra modal pages
+if($_GET['view'] == "modal")
+{
+	define('CU_EXTRA_HEAD', 'pages-modal');
+}else 
+{
+	define('CU_EXTRA_HEAD', 'pages');
+}
+
 ob_start("ob_gzhandler");
 require('ov_head.php');
 
@@ -44,6 +53,13 @@ $tplEngine->Template('pages');
     $tplEngine->Assign("TEXT", htmlspecialchars_decode($data['text']));
     $tplEngine->show();
 
-require('ov_foot.php');
+if($_SESSION['style'] != 'cunity')
+{
+	require('ov_foot.php');
+}
+else 
+{
+	require 'cunity_foot.php';
+}
 ob_end_flush();
 ?>
