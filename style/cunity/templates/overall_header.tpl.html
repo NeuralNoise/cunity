@@ -4,29 +4,26 @@
 		<title>{-$TITLE}</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta name="description" content="{-$SLOGAN}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="style/cunity/css/bootstrap.css" />
 		<!-- <link rel="stylesheet" type="text/css" href="style/cunity/css/base.css" /> -->
-		<!-- <link rel="stylesheet" type="text/css" href="style/cunity/css/style_red.css" /> -->
-		<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="style/cunity/css/style-red.css" />
 	</head>
 	
 	<body>
-		<div class="navbar navbar-fixed-top">
+		<script src="style/cunity/js/jquery.js"></script>
+		<script src="style/cunity/js/bootstrap.js"></script>
+		<div style="background-color:#FFFFFF;min-height:78px;" class="navbar navbar-fixed-top">
 			<div class="container">
-				<div class="col-md-2">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#"><img alt="Cunity Logo" src="style/cunity/images/logo.png"/></a>
+				<div class="col-xs-4 col-sm-2">
+					<a href="index.php">
+						<img alt="Cunity Logo" src="style/cunity/images/logo.png" class="img-responsive"/>
+					</a>
 				</div>
-				<div class="col-md-4">
-					<img alt="Cunity Slogan" src="style/cunity/images/slogan.png" />
+				<div class="col-xs-7 col-sm-4">
+					<img alt="Cunity Slogan" src="style/cunity/images/slogan.png" class="img-responsive" />
 				</div>
-				<div class="col-md-6">
+				<div class="col-sm-6 hidden-xs">
 					{-if LOGIN}
 					<div id="right_sidebar">
 							{-if $module.chat}
@@ -77,28 +74,22 @@
         </div>   
 </div>
 					{-else}
-					<div class="navbar-collapse collapse">
-						<form action="register.php?c=login" method="POST" class="form-inline">
-							<div class="pull-right">
-							<input type="text" id="email" name="mail" class="input-small" placeholder="{-$sidebar_mail}Email" />
-							<input type="password" id="pass" name="pass" class="input-small" placeholder="{-$sidebar_pass}Password" />
-							<input type="submit" class="btn btn-primary" name="login" value="Anmelden" style="margin-top: 0px;" />
-							</div>
-							<div class="pull-right" style="margin-right: 20px;">
-							<label class="checkbox">
-								<input type="checkbox" id="save_login" name="save_login" value="yes"> {-$sidebar_keep_online} Angemeldet bleiben
+					<form action="register.php?c=login" style="margin-top:20px;">
+						<div class="input-group-sm col-sm-4 col-sm-offset-1" style="padding-right:0px;">
+							<input type="text" name="mail" class="form-control" placeholder="{-$sidebar_mail}Email" />
+							<label style="font-weight: normal;">
+								<input type="checkbox" name="save_login" value="yes"> {-$sidebar_keep_online} Angemeldet bleiben
 							</label>
+						</div>
+						<div class="input-group-sm col-sm-4" style="padding-right: 0px;">
+							<input type="password" name="pass" class="form-control" placeholder="{-$sidebar_pass}Password" />
 							<a href="register.php?c=resetpw" >{-$sidebar_forgot_pw}Passwort vergessen ?</a>
-							</div>        
-						</form>
-						<!-- 
-						{-if $cunitysettings.registration_method!='code'}
-						        <h1 style="font-size: 17px; margin-bottom: 5px; margin-top: 10px;">{-$sidebar_not_registered}</h1>
-						        <button class="jui-button" style="font-size: 17px; width: 200px;" onclick="location.href='register.php'">{-$sidebar_create_account}</button>
-						        {-/if } -->
-					</div>
-						{-/if}
-					</div>
+						</div>
+						<div class="col-sm-3">
+							<input type="submit" class="btn btn-primary btn-sm" name="login" value="Anmelden" style="margin-top: 0px;" />
+						</div>        
+					</form>
+					{-/if}
 				</div>
 			</div>
 		</div>
