@@ -24,7 +24,7 @@
 					<img alt="Cunity Slogan" src="style/cunity/images/slogan.png" class="img-responsive" />
 				</div>
 				<div class="col-sm-6 hidden-xs">
-					<form action="register.php?c=login" style="margin-top:20px;">
+					<form action="register.php" method="GET" style="margin-top:20px;">
 						<div class="input-group-sm col-sm-4 col-sm-offset-1" style="padding-right:0px;">
 							<input type="text" name="mail" class="form-control" placeholder="{-$sidebar_mail}Email" />
 							<label style="font-weight: normal;">
@@ -36,6 +36,7 @@
 							<a href="register.php?c=resetpw" >{-$sidebar_forgot_pw}Passwort vergessen ?</a>
 						</div>
 						<div class="col-sm-3">
+							<input type="hidden" name="c" value="login" />
 							<input type="submit" class="btn btn-primary btn-sm" name="login" value="Anmelden" style="margin-top: 0px;" />
 						</div>        
 					</form>
