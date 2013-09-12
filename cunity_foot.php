@@ -118,7 +118,7 @@ $tplEngine->Assign('MSG', $msg);
 $tplEngine->Assign('registration_method', $cunity->getSetting('registration_method'));
 $tplEngine->Assign('module', $cunity->getActiveModules());
 
-$tplEngine->Template('start_footer');
+$tplEngine->Template(CU_EXTRA_HEAD.'_footer');
 $tplEngine->Assign('LANG', $_SESSION['language']);
 $tplEngine->Assign('LANGUAGES', $languagesOptions);
 
