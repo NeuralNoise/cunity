@@ -13,15 +13,26 @@
 	<body>
 		<script src="style/cunity/js/jquery.js"></script>
 		<script src="style/cunity/js/bootstrap.js"></script>
+		<script type="text/javascript">
+		$('body').on('hide.bs.modal', '.modal', function () {
+		    $(this).removeData('bs.modal');
+		});
+		</script>
+		<!-- start: dynamic modal content -->
+		<div class="modal fade" id="modalContainer" tabindex="-1" role="dialog" aria-hidden="true">
+		</div>
+		<!-- end: dynamic modal content -->
 		<div style="background-color:#FFFFFF;">
 			<div class="container">
 				<div class="col-xs-4 col-sm-2">
 					<a href="index.php">
-						<img alt="Cunity Logo" src="style/cunity/images/logo.png" class="img-responsive"/>
+						<img alt="Cunity Logo" src="style/cunity/images/logo.png" class="visible-xs"/>
+						<img alt="Cunity Logo" src="style/cunity/images/logo.png" class="img-responsive hidden-xs"/>
 					</a>
 				</div>
 				<div class="col-xs-7 col-sm-4">
-					<img alt="Cunity Slogan" src="style/cunity/images/slogan.png" class="img-responsive" />
+					<img alt="Cunity Slogan" src="style/cunity/images/slogan.png" class="visible-sm" />
+					<img alt="Cunity Slogan" src="style/cunity/images/slogan.png" class="img-responsive hidden-xs" />
 				</div>
 				<div class="col-sm-6 hidden-xs">
 					<form action="register.php" method="GET" style="margin-top:20px;">

@@ -37,6 +37,31 @@ ob_start("ob_gzhandler");
 define('CU_EXTRA_HEAD', 'start');
 require('ov_head.php');
 
+$days .= '<option value="">' . $lang['register_day'] . '</option>';
+for ($i = 1; $i <= 31; $i++) {
+	if (strlen($i) == 1)
+		$day = '0' . $i;
+	else
+		$day = $i;
+	$days .= '<option value="' . $day . '">' . $day . '</option>';
+}
+
+$months .= '<option value="">' . $lang['register_month'] . '</option>';
+for ($i = 1; $i <= 12; $i++) {
+	if (strlen($i) == 1)
+		$month = '0' . $i;
+	else
+		$month = $i;
+	$months .= '<option value="' . $month . '">' . $lang['month_' . $month] . '</option>';
+}
+$years .= '<option value="">' . $lang['register_year'] . '</option>';
+for ($year = date("Y", time()); $year >= 1911; $year--) {
+	$years .= '<option value="' . $year . '">' . $year . '</option>';
+}
+$tplEngine->Assign(array("DAYS" => $days, "MONTHS" => $months, "YEARS" => $years));
+
+
+
 $tplEngine->Assign('TITLE', $cunity->getSetting('name'));
 $tplEngine->Template('start');
 
